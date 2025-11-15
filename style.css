@@ -1,84 +1,306 @@
-/* ===== LOGIN PANEL ===== */
+/* -----------------------------------------------------
+   PAY4YOU LUXURY – STYLE COMPLETO
+----------------------------------------------------- */
+
+/* ---- GLOBAL ---- */
+
+body {
+  margin: 0;
+  background: #050917;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #f1f5f9;
+}
+
+.app-bg, .card-bg {
+  background: #050917;
+  padding: 20px;
+}
+
+/* ---- TOPBAR ---- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 10px;
+  background: #0e1525;
+  border-bottom: 1px solid #1e293b;
+  position: sticky;
+  top: 0;
+}
+
+.logo-small {
+  height: 34px;
+  margin-right: 8px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.topbar-main {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.topbar-sub {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.topbar-link {
+  color: #facc15;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ---- MAIN WRAPPER ---- */
+
+.main-wrapper {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* ---- PANEL (Dashboard blocchi) ---- */
+
+.panel {
+  background: #0d1422;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+}
+
+.panel h1 {
+  margin-top: 0;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.panel h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.helper-text {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* ---- INPUTS ---- */
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: #0a1020;
+  border: 1px solid #202842;
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ---- 2 COLONNE ---- */
+
+.two-cols {
+  display: flex;
+  gap: 15px;
+}
+
+.two-cols > div {
+  flex: 1;
+}
+
+/* ---- BOTTONI ---- */
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #050917;
+}
+
+.btn.primary {
+  background: #facc15;
+}
+
+.btn.primary:hover {
+  background: #ffe37b;
+}
+
+.btn.secondary {
+  border: 1px solid #facc15;
+  background: transparent;
+  color: #facc15;
+}
+
+.btn.secondary:hover {
+  background: rgba(250, 204, 21, 0.1);
+}
+
+.actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.link-exit {
+  margin-top: 16px;
+  color: #f87171;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.link-exit:hover {
+  text-decoration: underline;
+}
+
+/* ---- LOGIN BOX ---- */
 
 .login-panel {
   background: #10172a;
-  border-radius: 24px;
-  padding: 26px 22px 24px;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+  padding: 25px;
+  border-radius: 22px;
   max-width: 420px;
-  margin: 40px auto 0;
+  margin: 30px auto;
   text-align: center;
 }
 
 .login-panel h1 {
-  margin: 0 0 6px;
-  font-size: 22px;
+  margin-top: 0;
+  font-size: 24px;
 }
 
 .login-text {
-  font-size: 13px;
-  color: #cbd5f5;
-  margin-bottom: 14px;
-}
-
-.login-panel input[type="password"] {
-  width: 100%;
-  box-sizing: border-box;
-  background: #050917;
-  border: 1px solid #202842;
-  border-radius: 999px;
-  color: #f9fafb;
-  padding: 8px 12px;
   font-size: 14px;
-  margin-bottom: 10px;
+  opacity: 0.7;
 }
 
-.login-btn {
-  width: 100%;
+.login-panel input {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-/* ===== LOGO ===== */
+/* ---- CARD VIEW ---- */
 
-.logo-small {
-  height: 26px;
+.business-card {
+  background: #0d1422;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.brand-logo {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .logo-big {
-  max-width: 180px;
   width: 60%;
+  max-width: 220px;
 }
 
-/* ===== AZIONI SALVA / ANTEPRIMA / ESCI ===== */
-
-.actions-row {
+.photo-placeholder {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  background: #1e293b;
+  border-radius: 50%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.person-block {
+  text-align: center;
+}
+
+.person-block h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.company {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.role {
+  font-size: 15px;
+  margin-top: 4px;
+  opacity: 0.75;
+}
+
+.bio {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.section-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #facc15;
+}
+
+.buttons-list .btn {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
-.actions-row .btn {
-  flex: 1;
+.btn.disabled {
+  opacity: 0.35;
+  pointer-events: none;
 }
 
-.btn.secondary {
-  background: transparent;
-  color: #f9d54b;
-  border: 1px solid #f9d54b;
+/* ---- GALLERIA ---- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-.btn.secondary:hover {
-  background: rgba(249, 213, 75, 0.08);
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.link-exit {
-  margin-top: 8px;
-  background: none;
-  border: none;
-  color: #f87171;
-  font-size: 13px;
-  cursor: pointer;
-  text-decoration: underline;
-}
+/* ---- DOCUMENTI ---- */
 
-.link-exit:hover {
-  color: #fecaca;
+#pdfContainer .btn {
+  margin-bottom: 10px;
 }

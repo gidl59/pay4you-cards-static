@@ -24,8 +24,23 @@
     <a href="index.html" class="btn">↩ Torna alla Dashboard</a>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // Legge parametri URL
+    const params = new URLSearchParams(window.location.search);
+
+    const nome = params.get("nome") || "";
+    const cognome = params.get("cognome") || "";
+    const telefono = params.get("telefono") || "";
+    const email = params.get("email") || "";
+    const indirizzo = params.get("indirizzo") || "";
+
+    // Popola campi
+    document.getElementById("nomeCompleto").textContent = `${nome} ${cognome}`;
+    document.getElementById("infoEmail").textContent = email;
+    document.getElementById("infoTel").textContent = telefono;
+    document.getElementById("infoMail").textContent = email;
+    document.getElementById("infoAddr").textContent = indirizzo;
+  </script>
 
 </body>
 </html>
-

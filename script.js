@@ -1,9 +1,105 @@
-// ---------------- DASHBOARD (index.html) ----------------
+// ============ LOGIN & DASHBOARD ============
+
+// Password di accesso alla dashboard
+const DASHBOARD_PASSWORD = "test";   // <--- quella che mi hai chiesto
+
+const STORAGE_KEY = "pay4you_card_dati";
+
+// login dalla pagina index
+function loginDashboard() {
+  const loginBox = document.getElementById("loginBox");
+  const dashboard = document.getElementById("dashboard");
+  const input = document.getElementById("pwd");
+
+  if (!loginBox || !dashboard || !input) return;
+
+  const value = (input.value || "").trim();
+
+  if (value === DASHBOARD_PASSWORD) {
+    loginBox.style.display = "none";
+    dashboard.style.display = "block";
+    input.value = "";
+    caricaDatiSalvati();
+  } else {
+    alert("Password errata");
+  }
+}
+
+// esci dalla dashboard e torni al login
+function esciDashboard() {
+  const loginBox = document.getElementById("loginBox");
+  const dashboard = document.getElementById("dashboard");
+  if (!loginBox || !dashboard) return;
+  dashboard.style.display = "none";
+  loginBox.style.display = "block";
+}
+
+// tasto Invio sulla password
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("pwd");
+  if (input) {
+    input.addEventListener("keyup", function (e) {
+      if (e.key === "Enter") {
+        loginDashboard();
+      }
+    });
+  }
+});
+
+// ============ SALVA / CARICA DATI (localStorage) ============
+
+function salvaDati() {
+  const ids = [
+    "slug", "telMobile", "nomeCompleto", "telUfficio",
+    "azienda", "emails", "posizione", "websites", "bio",
+    "facebook", "whatsapp", "fotoProfilo",
+    "gallery1", "gallery2", "gallery3", "gallery4",
+    "pdf1", "pdf2", "pdf3", "pdf4",
+    "indirizzo1", "indirizzo2"
+  ];
+
+  const data = {};
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) data[id] = el.value;
+  });
+
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    alert("Dati salvati nel browser.");
+  } catch (e) {
+    console.error(e);
+    alert("Impossibile salvare i dati (controlla lo spazio del browser).");
+  }
+}
+
+function caricaDatiSalvati() {
+  let raw = null;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    return;
+  }
+  if (!raw) return;
+
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch (e) {
+    return;
+  }
+
+  Object.entries(data).forEach(([id, value]) => {
+    const el = document.getElementById(id);
+    if (el && typeof value === "string") {
+      el.value = value;
+    }
+  });
+}
+
+// ============ GENERA CARD (DA DASHBOARD) ============
 
 function generaCardLuxury() {
-  // lo slug lo leggiamo ma NON è obbligatorio e NON lo usiamo nell'URL
-  const slug = document.getElementById("slug")?.value.trim() || "";
-
   const nomeCompleto = document.getElementById("nomeCompleto").value.trim();
   const azienda = document.getElementById("azienda").value.trim();
   const posizione = document.getElementById("posizione").value.trim();
@@ -29,7 +125,6 @@ function generaCardLuxury() {
   const pdf3 = document.getElementById("pdf3").value.trim();
   const pdf4 = document.getElementById("pdf4").value.trim();
 
-  // NESSUN controllo sullo slug: puoi lasciarlo vuoto
   const params = new URLSearchParams({
     nomeCompleto,
     azienda,
@@ -58,11 +153,11 @@ function generaCardLuxury() {
   window.location.href = url;
 }
 
-// ---------------- CARD (card.html) ----------------
+// ============ POPOLA CARD (card.html) ============
 
 document.addEventListener("DOMContentLoaded", () => {
   const nameEl = document.getElementById("cardName");
-  if (!nameEl) return; // siamo su index
+  if (!nameEl) return; // siamo sulla dashboard, non sulla card
 
   const params = new URLSearchParams(window.location.search);
 
@@ -214,3 +309,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

@@ -8,10 +8,13 @@
 </head>
 <body class="app-bg">
 
-  <!-- Top bar -->
+  <!-- Top bar con logo -->
   <header class="topbar">
     <div class="topbar-left">
-      <div class="logo-dot"></div>
+      <div class="brand-icon small">
+        <div class="brand-waves">)))</div>
+        <div class="brand-coin">€</div>
+      </div>
       <div class="topbar-title">
         <span class="topbar-main">PAY4YOU</span>
         <span class="topbar-sub">Cards</span>
@@ -27,6 +30,7 @@
       <h1>Nuovo agente</h1>
       <p class="helper-text">Slug obbligatorio.</p>
 
+      <!-- Dati base -->
       <div class="two-cols">
         <div>
           <label>Slug (per l'URL)</label>
@@ -74,6 +78,69 @@
       <label>Descrizione / Bio</label>
       <textarea id="bio" rows="4" placeholder="Responsabile agenti centro Italia"></textarea>
 
+      <!-- Social -->
+      <h2>Social</h2>
+      <div class="two-cols">
+        <div>
+          <label>Facebook (URL profilo o pagina)</label>
+          <input id="facebook" type="text" placeholder="https://facebook.com/..." />
+        </div>
+        <div>
+          <label>WhatsApp (solo numero con prefisso)</label>
+          <input id="whatsapp" type="text" placeholder="+39 333..." />
+        </div>
+      </div>
+
+      <!-- Foto profilo e galleria -->
+      <h2>Immagini</h2>
+      <label>URL foto profilo</label>
+      <input id="fotoProfilo" type="text" placeholder="https://..." />
+
+      <div class="two-cols">
+        <div>
+          <label>URL foto galleria 1</label>
+          <input id="gallery1" type="text" placeholder="https://..." />
+        </div>
+        <div>
+          <label>URL foto galleria 2</label>
+          <input id="gallery2" type="text" placeholder="https://..." />
+        </div>
+      </div>
+      <div class="two-cols">
+        <div>
+          <label>URL foto galleria 3</label>
+          <input id="gallery3" type="text" placeholder="https://..." />
+        </div>
+        <div>
+          <label>URL foto galleria 4</label>
+          <input id="gallery4" type="text" placeholder="https://..." />
+        </div>
+      </div>
+
+      <!-- PDF -->
+      <h2>Documenti (PDF)</h2>
+      <div class="two-cols">
+        <div>
+          <label>PDF 1 (URL)</label>
+          <input id="pdf1" type="text" placeholder="https://..." />
+        </div>
+        <div>
+          <label>PDF 2 (URL)</label>
+          <input id="pdf2" type="text" placeholder="https://..." />
+        </div>
+      </div>
+      <div class="two-cols">
+        <div>
+          <label>PDF 3 (URL)</label>
+          <input id="pdf3" type="text" placeholder="https://..." />
+        </div>
+        <div>
+          <label>PDF 4 (URL)</label>
+          <input id="pdf4" type="text" placeholder="https://..." />
+        </div>
+      </div>
+
+      <!-- Indirizzi -->
       <h2>Indirizzi</h2>
       <label>Indirizzo principale</label>
       <input id="indirizzo1" type="text" placeholder="Via, Città" />

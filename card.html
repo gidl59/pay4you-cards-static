@@ -3,49 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pay4You – Card Digitale</title>
+  <title>Pay4You Cards – Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+<body class="app-bg">
 
-<body class="luxury-bg">
-
-  <div class="card lux-card">
-
-    <!-- Logo in alto -->
-    <div class="logo-row">
-      <div class="logo-circle">P4</div>
-      <div class="logo-text">
-        <span>PAY4</span>
-        <span>YOU</span>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-dot"></div>
+      <div class="topbar-title">
+        <span class="topbar-main">PAY4YOU</span>
+        <span class="topbar-sub">Cards</span>
       </div>
     </div>
-
-    <!-- Foto / avatar -->
-    <div class="profile">
-      <div class="avatar" id="avatarCircle"></div>
+    <div class="topbar-right">
+      <span class="topbar-link">Dashboard</span>
     </div>
+  </header>
 
-    <!-- Nome + email -->
-    <h1 id="nomeCompleto" class="title"></h1>
-    <p id="emailPiccolo" class="subtitle"></p>
+  <main class="main-wrapper">
+    <section class="panel">
+      <h1>Nuovo agente</h1>
+      <p class="helper-text">Slug obbligatorio.</p>
 
-    <!-- Info -->
-    <div class="info-box">
-      <p><span class="label">📞 Telefono:</span> <span id="infoTel"></span></p>
-      <p><span class="label">✉️ Email:</span> <span id="infoMail"></span></p>
-      <p><span class="label">📍 Indirizzo:</span> <span id="infoAddr"></span></p>
-    </div>
+      <div class="two-cols">
+        <div>
+          <label>Slug (per l'URL)</label>
+          <input id="slug" type="text" placeholder="giuseppe-di-lisio" />
+        </div>
+        <div>
+          <label>Telefono mobile</label>
+          <input id="telMobile" type="text" placeholder="+39 333…" />
+        </div>
+      </div>
 
-    <!-- QR che punta a questa card -->
-    <div class="qr-box">
-      <p class="qr-label">QR della tua card</p>
-      <img id="qrImage" alt="QR Card" />
-    </div>
+      <div class="two-cols">
+        <div>
+          <label>Nome completo</label>
+          <input id="nomeCompleto" type="text" placeholder="Giuseppe Di Lisio" />
+        </div>
+        <div>
+          <label>Telefono ufficio</label>
+          <input id="telUfficio" type="text" placeholder="+39 0874…" />
+        </div>
+      </div>
 
-    <a href="index.html" class="btn back-btn">↩ Torna alla Dashboard</a>
-  </div>
+      <div class="two-cols">
+        <div>
+          <label>Azienda</label>
+          <input id="azienda" type="text" placeholder="Pay4You" />
+        </div>
+        <div>
+          <label>Mail (separa con virgola)</label>
+          <input id="emails" type="text" placeholder="a@x.it, b@x.it" />
+        </div>
+      </div>
+
+      <div class="two-cols">
+        <div>
+          <label>Posizione lavorativa</label>
+          <input id="posizione" type="text" placeholder="Area Manager Centro Italia" />
+        </div>
+        <div>
+          <label>Siti web (separa con virgola)</label>
+          <input id="websites" type="text" placeholder="https://..., https://..." />
+        </div>
+      </div>
+
+      <label>Descrizione / Bio</label>
+      <textarea id="bio" rows="4" placeholder="Responsabile agenti centro Italia"></textarea>
+
+      <h2>Indirizzi</h2>
+      <label>Indirizzo principale</label>
+      <input id="indirizzo1" type="text" placeholder="Via, Città" />
+
+      <label>Indirizzo secondario (opzionale)</label>
+      <input id="indirizzo2" type="text" placeholder="Altro indirizzo" />
+
+      <div class="actions">
+        <button class="btn primary" onclick="generaCardLuxury()">Apri anteprima card</button>
+      </div>
+
+      <p class="hint">
+        Dopo aver aperto la card, usa l'URL completo per creare il QR da stampare.
+      </p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
-
 </body>
 </html>

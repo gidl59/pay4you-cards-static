@@ -1,75 +1,240 @@
-/* Sfondo elegante */
-.luxury-bg {
-  background: linear-gradient(135deg, #ffffff, #f7f7f7);
-  min-height: 100vh;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', Arial, sans-serif;
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
 }
 
-/* Card centrale */
+/* Sfondo dashboard */
+.page-bg {
+  background: linear-gradient(135deg, #ffffff, #f3f3f3);
+  min-height: 100vh;
+  padding: 30px 16px;
+}
+
+/* Sfondo card */
+.luxury-bg {
+  background: radial-gradient(circle at top, #ffe27a 0, #fff6d5 34%, #f3f3f3 100%);
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+/* ===== DASHBOARD ===== */
+
+.container {
+  background: #ffffff;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 22px 20px 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.logo-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffd700, #ff9800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.logo-text span:nth-child(2) {
+  margin-left: 2px;
+}
+
+.container h1 {
+  font-size: 22px;
+  margin: 6px 0 18px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  font-size: 14px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 11px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn.primary {
+  background: #ffd000;
+  color: #000;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+}
+
+.note {
+  font-size: 11px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* ===== CARD LUXURY ===== */
+
 .lux-card {
   background: #ffffff;
   max-width: 420px;
-  margin: auto;
-  padding: 30px 25px;
+  margin: 0 auto;
+  padding: 26px 22px 24px;
   border-radius: 22px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  text-align: center;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 
-/* Cerchio immagine */
-.profile .circle {
+/* Logo row sulla card */
+.logo-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Riutilizza .logo-circle e .logo-text */
+
+/* Avatar */
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.avatar {
   width: 110px;
   height: 110px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffd700, #ff9900);
-  margin: 0 auto 20px auto;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #ffcc33 40%, #ff9a00 100%);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  background-size: cover;
+  background-position: center;
 }
 
-/* Nome */
+/* Testi */
 .title {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 4px;
 }
 
-/* Email piccola */
 .subtitle {
+  text-align: center;
+  font-size: 14px;
   color: #444;
-  font-size: 15px;
-  margin-bottom: 25px;
+  margin: 0 0 20px;
 }
 
-/* Box informazioni */
+/* Info box */
 .info-box {
   background: #fafafa;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: left;
-  margin-bottom: 25px;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.04);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
+  font-size: 14px;
 }
 
-/* Label “Telefono:” ecc */
+.info-box p {
+  margin: 0 0 8px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
 .label {
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* Pulsante */
+/* QR box */
+.qr-box {
+  background: #fffdf4;
+  border-radius: 16px;
+  padding: 12px 10px 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  margin-bottom: 18px;
+}
+
+.qr-label {
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+#qrImage {
+  width: 150px;
+  height: 150px;
+}
+
+/* Pulsante indietro */
 .back-btn {
   background: #ffd000;
-  padding: 12px;
-  font-weight: bold;
-  border-radius: 10px;
   color: #000;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  transition: 0.2s;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .back-btn:hover {
-  background: #ffb700;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive piccolo */
+@media (max-width: 400px) {
+  .lux-card,
+  .container {
+    padding: 20px 16px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
 }

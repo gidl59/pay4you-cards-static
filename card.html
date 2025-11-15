@@ -11,21 +11,38 @@
 
   <div class="card lux-card">
 
-    <div class="profile">
-      <div class="circle"></div>
+    <!-- Logo in alto -->
+    <div class="logo-row">
+      <div class="logo-circle">P4</div>
+      <div class="logo-text">
+        <span>PAY4</span>
+        <span>YOU</span>
+      </div>
     </div>
 
+    <!-- Foto / avatar -->
+    <div class="profile">
+      <div class="avatar" id="avatarCircle"></div>
+    </div>
+
+    <!-- Nome + email -->
     <h1 id="nomeCompleto" class="title"></h1>
     <p id="emailPiccolo" class="subtitle"></p>
 
+    <!-- Info -->
     <div class="info-box">
       <p><span class="label">📞 Telefono:</span> <span id="infoTel"></span></p>
       <p><span class="label">✉️ Email:</span> <span id="infoMail"></span></p>
       <p><span class="label">📍 Indirizzo:</span> <span id="infoAddr"></span></p>
     </div>
 
-    <a href="index.html" class="btn back-btn">↩ Torna alla Dashboard</a>
+    <!-- QR che punta a questa card -->
+    <div class="qr-box">
+      <p class="qr-label">QR della tua card</p>
+      <img id="qrImage" alt="QR Card" />
+    </div>
 
+    <a href="index.html" class="btn back-btn">↩ Torna alla Dashboard</a>
   </div>
 
   <script src="script.js"></script>

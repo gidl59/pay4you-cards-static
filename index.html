@@ -3,54 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pay4You – Dashboard Card</title>
+  <title>Pay4You Cards – Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-bg">
+<body class="app-bg">
 
-  <div class="container">
-
-    <div class="logo-top">
-      <div class="logo-circle">P4</div>
-      <div class="logo-text">
-        <span>PAY4</span>
-        <span>YOU</span>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-dot"></div>
+      <div class="topbar-title">
+        <span class="topbar-main">PAY4YOU</span>
+        <span class="topbar-sub">Cards</span>
       </div>
     </div>
-
-    <h1>Crea la tua Card Digitale</h1>
-
-    <div class="form-group">
-      <label>Nome</label>
-      <input id="nome" type="text" placeholder="Giuseppe" />
+    <div class="topbar-right">
+      <span class="topbar-link">Dashboard</span>
     </div>
+  </header>
 
-    <div class="form-group">
-      <label>Cognome</label>
-      <input id="cognome" type="text" placeholder="Di Lisio" />
-    </div>
+  <main class="main-wrapper">
+    <section class="panel">
+      <h1>Nuovo agente</h1>
+      <p class="helper-text">Slug obbligatorio.</p>
 
-    <div class="form-group">
-      <label>Telefono</label>
-      <input id="telefono" type="text" placeholder="+39 333…" />
-    </div>
+      <div class="two-cols">
+        <div>
+          <label>Slug (per l'URL)</label>
+          <input id="slug" type="text" placeholder="giuseppe-di-lisio" />
+        </div>
+        <div>
+          <label>Telefono mobile</label>
+          <input id="telMobile" type="text" placeholder="+39 333…" />
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label>Email</label>
-      <input id="email" type="email" placeholder="email@example.com" />
-    </div>
+      <div class="two-cols">
+        <div>
+          <label>Nome completo</label>
+          <input id="nomeCompleto" type="text" placeholder="Giuseppe Di Lisio" />
+        </div>
+        <div>
+          <label>Telefono ufficio</label>
+          <input id="telUfficio" type="text" placeholder="+39 0874…" />
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label>Indirizzo</label>
-      <input id="indirizzo" type="text" placeholder="Via, città…" />
-    </div>
+      <div class="two-cols">
+        <div>
+          <label>Azienda</label>
+          <input id="azienda" type="text" placeholder="Pay4You" />
+        </div>
+        <div>
+          <label>Mail (separa con virgola)</label>
+          <input id="emails" type="text" placeholder="a@x.it, b@x.it" />
+        </div>
+      </div>
 
-    <button class="btn primary" onclick="generaCard()">Genera card</button>
+      <div class="two-cols">
+        <div>
+          <label>Posizione lavorativa</label>
+          <input id="posizione" type="text" placeholder="Area Manager Centro Italia" />
+        </div>
+        <div>
+          <label>Siti web (separa con virgola)</label>
+          <input id="websites" type="text" placeholder="https://..., https://..." />
+        </div>
+      </div>
 
-    <p class="note">
-      Una volta generata, puoi creare il QR usando l’URL della card.
-    </p>
-  </div>
+      <label>Descrizione / Bio</label>
+      <textarea id="bio" rows="4" placeholder="Responsabile agenti centro Italia"></textarea>
+
+      <h2>Indirizzi</h2>
+      <label>Indirizzo principale</label>
+      <input id="indirizzo1" type="text" placeholder="Via, Città" />
+
+      <label>Indirizzo secondario (opzionale)</label>
+      <input id="indirizzo2" type="text" placeholder="Altro indirizzo" />
+
+      <div class="actions">
+        <button class="btn primary" onclick="generaCardLuxury()">Apri anteprima card</button>
+      </div>
+
+      <p class="hint">
+        Dopo aver aperto la card, usa l'URL completo per creare il QR da stampare.
+      </p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>

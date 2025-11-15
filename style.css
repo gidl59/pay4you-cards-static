@@ -36,3 +36,49 @@
 .login-btn {
   width: 100%;
 }
+
+/* ===== LOGO ===== */
+
+.logo-small {
+  height: 26px;
+}
+
+.logo-big {
+  max-width: 180px;
+  width: 60%;
+}
+
+/* ===== AZIONI SALVA / ANTEPRIMA / ESCI ===== */
+
+.actions-row {
+  display: flex;
+  gap: 10px;
+}
+
+.actions-row .btn {
+  flex: 1;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: #f9d54b;
+  border: 1px solid #f9d54b;
+}
+
+.btn.secondary:hover {
+  background: rgba(249, 213, 75, 0.08);
+}
+
+.link-exit {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #f87171;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link-exit:hover {
+  color: #fecaca;
+}

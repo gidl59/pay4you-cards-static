@@ -25,10 +25,19 @@
     </div>
   </header>
 
-  <main class="main-wrapper">
+  <!-- BLOCCO LOGIN -->
+  <div id="loginBox" class="login-panel">
+    <h1>Accesso riservato</h1>
+    <p class="login-text">Inserisci la password per entrare nella dashboard agenti.</p>
+    <input id="pwd" type="password" placeholder="Password" />
+    <button class="btn primary login-btn" onclick="loginDashboard()">Entra</button>
+  </div>
+
+  <!-- DASHBOARD (inizialmente nascosta) -->
+  <main id="dashboard" class="main-wrapper" style="display:none;">
     <section class="panel">
       <h1>Nuovo agente</h1>
-      <p class="helper-text">Slug obbligatorio.</p>
+      <p class="helper-text">Slug facoltativo (puoi lasciarlo vuoto).</p>
 
       <!-- Dati base -->
       <div class="two-cols">
@@ -159,5 +168,35 @@
   </main>
 
   <script src="script.js"></script>
+
+  <!-- Script login -->
+  <script>
+    const DASHBOARD_PASSWORD = "pay4you2024"; // 🔐 CAMBIA QUI LA TUA PASSWORD
+
+    function loginDashboard() {
+      const input = document.getElementById("pwd");
+      const value = (input.value || "").trim();
+
+      if (value === DASHBOARD_PASSWORD) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        input.value = "";
+      } else {
+        alert("Password errata");
+      }
+    }
+
+    // Invio con tasto Enter
+    document.addEventListener("DOMContentLoaded", function () {
+      const input = document.getElementById("pwd");
+      if (!input) return;
+      input.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          loginDashboard();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+

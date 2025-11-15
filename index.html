@@ -3,40 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pay4You Card – Dashboard</title>
+  <title>Pay4You – Dashboard Card</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="page-bg">
 
   <div class="container">
-    <h1>Pay4You – Creazione Card Digitale</h1>
+
+    <div class="logo-top">
+      <div class="logo-circle">P4</div>
+      <div class="logo-text">
+        <span>PAY4</span>
+        <span>YOU</span>
+      </div>
+    </div>
+
+    <h1>Crea la tua Card Digitale</h1>
 
     <div class="form-group">
       <label>Nome</label>
-      <input id="nome" type="text" placeholder="Es: Giuseppe" />
+      <input id="nome" type="text" placeholder="Giuseppe" />
     </div>
 
     <div class="form-group">
       <label>Cognome</label>
-      <input id="cognome" type="text" placeholder="Es: Di Lisio" />
+      <input id="cognome" type="text" placeholder="Di Lisio" />
     </div>
 
     <div class="form-group">
       <label>Telefono</label>
-      <input id="telefono" type="text" placeholder="+39…" />
+      <input id="telefono" type="text" placeholder="+39 333…" />
     </div>
 
     <div class="form-group">
       <label>Email</label>
-      <input id="email" type="text" placeholder="email@example.com" />
+      <input id="email" type="email" placeholder="email@example.com" />
     </div>
 
     <div class="form-group">
       <label>Indirizzo</label>
-      <input id="indirizzo" type="text" placeholder="Via…" />
+      <input id="indirizzo" type="text" placeholder="Via, città…" />
     </div>
 
-    <button class="btn" onclick="generaCard()">Genera Card</button>
+    <button class="btn primary" onclick="generaCard()">Genera card</button>
+
+    <p class="note">
+      Una volta generata, puoi creare il QR usando l’URL della card.
+    </p>
   </div>
 
   <script src="script.js"></script>

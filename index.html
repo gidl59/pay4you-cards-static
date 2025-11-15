@@ -11,12 +11,9 @@
   <!-- Top bar con logo -->
   <header class="topbar">
     <div class="topbar-left">
-      <div class="brand-icon small">
-        <div class="brand-waves">)))</div>
-        <div class="brand-coin">€</div>
-      </div>
+      <img src="logo-pay4you.png" alt="Pay4You" class="logo-small" />
       <div class="topbar-title">
-        <span class="topbar-main">PAY4YOU</span>
+        <span class="topbar-main">Pay4You</span>
         <span class="topbar-sub">Cards</span>
       </div>
     </div>
@@ -157,9 +154,13 @@
       <label>Indirizzo secondario (opzionale)</label>
       <input id="indirizzo2" type="text" placeholder="Altro indirizzo" />
 
-      <div class="actions">
-        <button class="btn primary" onclick="generaCardLuxury()">Apri anteprima card</button>
+      <!-- BOTTONI SALVA + ANTEPRIMA -->
+      <div class="actions actions-row">
+        <button class="btn secondary" type="button" onclick="salvaDati()">Salva</button>
+        <button class="btn primary" type="button" onclick="generaCardLuxury()">Apri anteprima card</button>
       </div>
+
+      <button type="button" class="link-exit" onclick="esciDashboard()">Esci</button>
 
       <p class="hint">
         Dopo aver aperto la card, usa l'URL completo per creare il QR da stampare.
@@ -168,35 +169,5 @@
   </main>
 
   <script src="script.js"></script>
-
-  <!-- Script login -->
-  <script>
-    const DASHBOARD_PASSWORD = "pay4you2024"; // 🔐 CAMBIA QUI LA TUA PASSWORD
-
-    function loginDashboard() {
-      const input = document.getElementById("pwd");
-      const value = (input.value || "").trim();
-
-      if (value === DASHBOARD_PASSWORD) {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-        input.value = "";
-      } else {
-        alert("Password errata");
-      }
-    }
-
-    // Invio con tasto Enter
-    document.addEventListener("DOMContentLoaded", function () {
-      const input = document.getElementById("pwd");
-      if (!input) return;
-      input.addEventListener("keyup", function (e) {
-        if (e.key === "Enter") {
-          loginDashboard();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
-

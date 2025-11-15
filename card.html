@@ -3,44 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Card Digitale – Pay4You</title>
+  <title>Pay4You – Card Digitale</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <div class="card">
+<body class="luxury-bg">
 
-    <div class="card-header">
-      <h2 id="nomeCompleto"></h2>
-      <p id="infoEmail"></p>
+  <div class="card lux-card">
+
+    <div class="profile">
+      <div class="circle"></div>
     </div>
 
-    <div class="card-body">
-      <p><strong>Telefono:</strong> <span id="infoTel"></span></p>
-      <p><strong>Email:</strong> <span id="infoMail"></span></p>
-      <p><strong>Indirizzo:</strong> <span id="infoAddr"></span></p>
+    <h1 id="nomeCompleto" class="title"></h1>
+    <p id="emailPiccolo" class="subtitle"></p>
+
+    <div class="info-box">
+      <p><span class="label">📞 Telefono:</span> <span id="infoTel"></span></p>
+      <p><span class="label">✉️ Email:</span> <span id="infoMail"></span></p>
+      <p><span class="label">📍 Indirizzo:</span> <span id="infoAddr"></span></p>
     </div>
 
-    <a href="index.html" class="btn">↩ Torna alla Dashboard</a>
+    <a href="index.html" class="btn back-btn">↩ Torna alla Dashboard</a>
+
   </div>
 
-  <script>
-    // Legge parametri URL
-    const params = new URLSearchParams(window.location.search);
-
-    const nome = params.get("nome") || "";
-    const cognome = params.get("cognome") || "";
-    const telefono = params.get("telefono") || "";
-    const email = params.get("email") || "";
-    const indirizzo = params.get("indirizzo") || "";
-
-    // Popola campi
-    document.getElementById("nomeCompleto").textContent = `${nome} ${cognome}`;
-    document.getElementById("infoEmail").textContent = email;
-    document.getElementById("infoTel").textContent = telefono;
-    document.getElementById("infoMail").textContent = email;
-    document.getElementById("infoAddr").textContent = indirizzo;
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

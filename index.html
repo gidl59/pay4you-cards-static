@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pay4You Card – Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pay4You – Creazione Card Digitale</h1>
+
+    <div class="form-group">
+      <label>Nome</label>
+      <input id="nome" type="text" placeholder="Es: Giuseppe" />
+    </div>
+
+    <div class="form-group">
+      <label>Cognome</label>
+      <input id="cognome" type="text" placeholder="Es: Di Lisio" />
+    </div>
+
+    <div class="form-group">
+      <label>Telefono</label>
+      <input id="telefono" type="text" placeholder="+39…" />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input id="email" type="text" placeholder="email@example.com" />
+    </div>
+
+    <div class="form-group">
+      <label>Indirizzo</label>
+      <input id="indirizzo" type="text" placeholder="Via…" />
+    </div>
+
+    <button class="btn" onclick="generaCard()">Genera Card</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

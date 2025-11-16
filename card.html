@@ -5,21 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pay4You Cards – Card</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="logo-pay4you.png">
+  <link rel="icon" type="image/png" href="logo-pay4you-white.png">
 </head>
+
 <body class="card-bg">
 
-  <!-- Top bar con logo -->
+  <!-- NAVBAR -->
   <header class="topbar">
     <div class="topbar-left">
-      <img src="logo-pay4you.png" alt="Pay4You" class="logo-small" />
+      <img src="logo-pay4you-white.png" alt="Pay4You" class="logo-small" />
       <div class="topbar-title">
         <span class="topbar-main">Pay4You</span>
-        <span class="topbar-sub">Cards</span>
+        <span class="topbar-sub">Card</span>
       </div>
-    </div>
-    <div class="topbar-right">
-      <span class="topbar-link">Login</span>
     </div>
   </header>
 
@@ -28,7 +26,7 @@
 
       <!-- Logo grande -->
       <div class="brand-logo">
-        <img src="logo-pay4you.png" alt="Pay4You" class="logo-big" />
+        <img src="logo-pay4you-white.png" alt="Pay4You" class="logo-big" />
       </div>
 
       <!-- Foto profilo -->
@@ -36,7 +34,7 @@
         <span id="photoText">Foto profilo</span>
       </div>
 
-      <!-- Dati persona -->
+      <!-- Dati -->
       <div class="person-block">
         <h1 id="cardName"></h1>
         <p id="cardCompany" class="company"></p>
@@ -47,43 +45,43 @@
       <!-- Contatti -->
       <div class="section-title">Contatti</div>
       <div class="buttons-list">
+
         <a id="btnMobile" class="btn contact-btn">
-          <span class="icon">📱</span>
-          <span>Chiama mobile</span>
+          <span class="icon">📱</span> Chiama mobile
         </a>
+
         <a id="btnOffice" class="btn contact-btn">
-          <span class="icon">☎️</span>
-          <span>Chiama ufficio</span>
+          <span class="icon">☎️</span> Chiama ufficio
         </a>
+
         <a id="btnMail1" class="btn contact-btn">
-          <span class="icon">✉️</span>
-          <span id="mail1Label"></span>
+          <span class="icon">✉️</span> <span id="mail1Label"></span>
         </a>
+
         <a id="btnMail2" class="btn contact-btn">
-          <span class="icon">✉️</span>
-          <span id="mail2Label"></span>
+          <span class="icon">✉️</span> <span id="mail2Label"></span>
         </a>
+
         <a id="btnWeb" class="btn contact-btn">
-          <span class="icon">🌐</span>
-          <span id="webLabel"></span>
+          <span class="icon">🌐</span> <span id="webLabel"></span>
         </a>
-        <!-- Salva contatto (VCF) -->
+
+        <!-- Salva Contatto -->
         <a id="btnVcf" class="btn contact-btn">
-          <span class="icon">📇</span>
-          <span>Salva contatto</span>
+          <span class="icon">📇</span> Salva contatto
         </a>
       </div>
 
       <!-- Social -->
       <div class="section-title">Social</div>
       <div class="buttons-list">
+
         <a id="btnFacebook" class="btn contact-btn">
-          <span class="icon">📘</span>
-          <span>Facebook</span>
+          <span class="icon">📘</span> Facebook
         </a>
+
         <a id="btnWhatsapp" class="btn contact-btn">
-          <span class="icon">💬</span>
-          <span>WhatsApp</span>
+          <span class="icon">💬</span> WhatsApp
         </a>
       </div>
 
@@ -94,7 +92,7 @@
         <p id="addr2"></p>
       </div>
 
-      <!-- Galleria foto -->
+      <!-- Galleria -->
       <div class="section-title">Galleria foto</div>
       <div class="gallery" id="galleryContainer"></div>
 
@@ -105,7 +103,7 @@
       <!-- QR CODE -->
       <div class="section-title">QR Code</div>
       <div class="qr-wrapper">
-        <img id="qrImage" alt="QR Code della card" />
+        <img id="qrImage" alt="QR Code" />
       </div>
 
     </section>

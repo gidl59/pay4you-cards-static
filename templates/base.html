@@ -1,1 +1,45 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>{% block title %}Pay4You Card{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/pay4you-icon.png') }}" type="image/png">
+</head>
+
+<body class="luxury-bg">
+
+<header class="topbar">
+    <div class="topbar-inner">
+
+        <div class="brand">
+            <img src="{{ url_for('static', filename='img/pay4you-logo.png') }}" class="brand-logo" alt="Pay4You">
+            <span class="brand-title">Card</span>
+        </div>
+
+        <nav class="nav">
+            {% if session.get('admin') %}
+                <a href="{{ url_for('admin_home') }}">Dashboard</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </nav>
+
+    </div>
+</header>
+
+<main class="wrapper">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    © 2025 Pay4You • Card digitale
+</footer>
+
+</body>
+</html>
 

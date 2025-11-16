@@ -22,15 +22,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 10px;
-  background: #0e1525;
-  border-bottom: 1px solid #1e293b;
+  padding: 12px 14px;
+  background: #020617;
+  border-bottom: 1px solid #111827;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .logo-small {
-  height: 34px;
+  height: 30px;
   margin-right: 8px;
 }
 
@@ -42,7 +43,7 @@ body {
 .topbar-title {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .topbar-main {
@@ -55,10 +56,12 @@ body {
   opacity: 0.7;
 }
 
+.topbar-right {
+  font-size: 14px;
+}
+
 .topbar-link {
   color: #facc15;
-  font-size: 14px;
-  cursor: pointer;
 }
 
 /* ---- MAIN WRAPPER ---- */
@@ -68,31 +71,31 @@ body {
   margin: 20px auto;
 }
 
-/* ---- PANEL (Dashboard blocchi) ---- */
+/* ---- PANEL (Dashboard) ---- */
 
 .panel {
-  background: #0d1422;
-  padding: 25px;
+  background: #0b1220;
+  padding: 24px;
   border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
 }
 
 .panel h1 {
   margin-top: 0;
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 8px;
 }
 
 .panel h2 {
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-size: 22px;
+  margin-top: 26px;
+  margin-bottom: 6px;
+  font-size: 20px;
 }
 
 .helper-text {
   font-size: 13px;
   opacity: 0.7;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* ---- INPUTS ---- */
@@ -101,18 +104,18 @@ label {
   display: block;
   margin-bottom: 6px;
   margin-top: 12px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 input, textarea {
   width: 100%;
-  padding: 10px 14px;
-  background: #0a1020;
-  border: 1px solid #202842;
+  padding: 9px 12px;
+  background: #020617;
+  border: 1px solid #1f2937;
   border-radius: 10px;
-  color: #e2e8f0;
-  font-size: 15px;
+  color: #e5e7eb;
+  font-size: 14px;
   box-sizing: border-box;
 }
 
@@ -124,7 +127,7 @@ textarea {
 
 .two-cols {
   display: flex;
-  gap: 15px;
+  gap: 12px;
 }
 
 .two-cols > div {
@@ -134,15 +137,19 @@ textarea {
 /* ---- BOTTONI ---- */
 
 .btn {
-  display: inline-block;
-  padding: 12px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
   border-radius: 12px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
-  color: #050917;
+  color: #020617;
+  border: none;
 }
 
 .btn.primary {
@@ -150,7 +157,7 @@ textarea {
 }
 
 .btn.primary:hover {
-  background: #ffe37b;
+  background: #fde047;
 }
 
 .btn.secondary {
@@ -165,17 +172,21 @@ textarea {
 
 .actions-row {
   display: flex;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.actions-row .btn {
+  flex: 1;
 }
 
 .link-exit {
-  margin-top: 16px;
-  color: #f87171;
+  margin-top: 12px;
+  color: #f97373;
   background: none;
   border: none;
+  font-size: 13px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .link-exit:hover {
@@ -185,41 +196,47 @@ textarea {
 /* ---- LOGIN BOX ---- */
 
 .login-panel {
-  background: #10172a;
-  padding: 25px;
+  background: #0b1120;
+  padding: 24px;
   border-radius: 22px;
   max-width: 420px;
-  margin: 30px auto;
+  margin: 32px auto 0;
   text-align: center;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
 }
 
 .login-panel h1 {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .login-text {
-  font-size: 14px;
-  opacity: 0.7;
+  font-size: 13px;
+  opacity: 0.75;
 }
 
 .login-panel input {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.login-btn {
+  width: 100%;
 }
 
 /* ---- CARD VIEW ---- */
 
 .business-card {
-  background: #0d1422;
-  border-radius: 20px;
-  padding: 25px;
+  background: #020617;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.65);
 }
 
 .brand-logo {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 4px;
+  margin-bottom: 10px;
 }
 
 .logo-big {
@@ -228,18 +245,19 @@ textarea {
 }
 
 .photo-placeholder {
-  width: 160px;
-  height: 160px;
-  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 12px;
   background: #1e293b;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #cbd5e1;
-  font-size: 14px;
-  margin-bottom: 15px;
+  font-size: 13px;
 }
+
+/* ---- PERSONA ---- */
 
 .person-block {
   text-align: center;
@@ -247,38 +265,50 @@ textarea {
 
 .person-block h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 .company {
-  font-size: 16px;
-  opacity: 0.85;
+  font-size: 15px;
+  opacity: 0.9;
 }
 
 .role {
-  font-size: 15px;
-  margin-top: 4px;
-  opacity: 0.75;
+  font-size: 14px;
+  margin-top: 2px;
+  opacity: 0.8;
 }
 
 .bio {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.75;
+  margin-top: 4px;
 }
 
+/* ---- SEZIONI CARD ---- */
+
 .section-title {
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 17px;
   color: #facc15;
 }
 
+/* ---- LISTA BOTTONI CARD ---- */
+
 .buttons-list .btn {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  width: 100%;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+}
+
+.contact-btn {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.contact-btn .icon {
+  font-size: 16px;
 }
 
 .btn.disabled {
@@ -286,12 +316,20 @@ textarea {
   pointer-events: none;
 }
 
+/* ---- INDIRIZZI ---- */
+
+.addresses p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
 /* ---- GALLERIA ---- */
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 .gallery img {
@@ -299,8 +337,34 @@ textarea {
   border-radius: 10px;
 }
 
-/* ---- DOCUMENTI ---- */
+/* ---- PDF ---- */
 
 #pdfContainer .btn {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+/* ---- QR CODE ---- */
+
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+.qr-wrapper img {
+  width: 220px;
+  height: 220px;
+  background: #020617;
+  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ---- TESTI DI AIUTO ---- */
+
+.hint {
+  margin-top: 16px;
+  font-size: 12px;
+  opacity: 0.65;
 }

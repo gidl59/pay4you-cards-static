@@ -1,11 +1,10 @@
-// ============ LOGIN & DASHBOARD ============
+// ================== CONFIGURAZIONE ==================
 
-// Password di accesso alla dashboard
-const DASHBOARD_PASSWORD = "test";   // <--- quella che mi hai chiesto
+const DASHBOARD_PASSWORD = "test";          // password login
+const STORAGE_KEY = "pay4you_card_dati";   // chiave localStorage
 
-const STORAGE_KEY = "pay4you_card_dati";
+// ================== LOGIN / LOGOUT ==================
 
-// login dalla pagina index
 function loginDashboard() {
   const loginBox = document.getElementById("loginBox");
   const dashboard = document.getElementById("dashboard");
@@ -25,7 +24,6 @@ function loginDashboard() {
   }
 }
 
-// esci dalla dashboard e torni al login
 function esciDashboard() {
   const loginBox = document.getElementById("loginBox");
   const dashboard = document.getElementById("dashboard");
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// ============ SALVA / CARICA DATI (localStorage) ============
+// ================== SALVA / CARICA (localStorage) ==================
 
 function salvaDati() {
   const ids = [
@@ -97,7 +95,7 @@ function caricaDatiSalvati() {
   });
 }
 
-// ============ GENERA CARD (DA DASHBOARD) ============
+// ================== GENERAZIONE CARD ==================
 
 function generaCardLuxury() {
   const nomeCompleto = document.getElementById("nomeCompleto").value.trim();
@@ -153,11 +151,11 @@ function generaCardLuxury() {
   window.location.href = url;
 }
 
-// ============ POPOLA CARD (card.html) ============
+// ================== POPOLAMENTO CARD ==================
 
 document.addEventListener("DOMContentLoaded", () => {
   const nameEl = document.getElementById("cardName");
-  if (!nameEl) return; // siamo sulla dashboard, non sulla card
+  if (!nameEl) return; // siamo sulla dashboard
 
   const params = new URLSearchParams(window.location.search);
 
@@ -285,7 +283,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Galleria
   const galleryContainer = document.getElementById("galleryContainer");
   if (galleryUrls.length === 0) {
-    galleryContainer.innerHTML = '<p style="font-size:13px;opacity:0.6;">Nessuna immagine caricata.</p>';
+    galleryContainer.innerHTML =
+      '<p style="font-size:13px;opacity:0.6;">Nessuna immagine caricata.</p>';
   } else {
     galleryUrls.forEach(url => {
       const img = document.createElement("img");
@@ -297,7 +296,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // PDF
   const pdfContainer = document.getElementById("pdfContainer");
   if (pdfUrls.length === 0) {
-    pdfContainer.innerHTML = '<div class="contact-btn disabled"><span class="icon">📄</span><span>Nessun documento</span></div>';
+    pdfContainer.innerHTML =
+      '<div class="btn contact-btn disabled"><span class="icon">📄</span><span>Nessun documento</span></div>';
   } else {
     pdfUrls.forEach((url, idx) => {
       const a = document.createElement("a");
@@ -308,5 +308,42 @@ document.addEventListener("DOMContentLoaded", () => {
       pdfContainer.appendChild(a);
     });
   }
-});
 
+  // VCF (vCard) - Salva contatto
+  const btnVcf = document.getElementById("btnVcf");
+  if (btnVcf && (nomeCompleto || telMobile || emails[0])) {
+    const vcardLines = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      `FN:${nomeCompleto}`,
+      azienda ? `ORG:${azienda}` : "",
+      posizione ? `TITLE:${posizione}` : "",
+      telMobile ? `TEL;TYPE=CELL:${telMobile}` : "",
+      telUfficio ? `TEL;TYPE=WORK:${telUfficio}` : "",
+      emails[0] ? `EMAIL;TYPE=INTERNET,WORK:${emails[0]}` : "",
+      emails[1] ? `EMAIL;TYPE=INTERNET,HOME:${emails[1]}` : "",
+      indirizzo1 ? `ADR;TYPE=WORK:;;${indirizzo1}` : "",
+      indirizzo2 ? `ADR;TYPE=HOME:;;${indirizzo2}` : "",
+      websites[0] ? `URL:${websites[0]}` : "",
+      "END:VCARD"
+    ].filter(Boolean);
+
+    const vcardText = vcardLines.join("\n");
+    const encoded = encodeURIComponent(vcardText);
+    const filenameSafe = (nomeCompleto || "contatto").replace(/\s+/g, "_");
+
+    btnVcf.href = `data:text/vcard;charset=utf-8,${encoded}`;
+    btnVcf.download = `${filenameSafe}.vcf`;
+  } else if (btnVcf) {
+    btnVcf.classList.add("disabled");
+  }
+
+  // QR CODE della card (URL corrente)
+  const qrImg = document.getElementById("qrImage");
+  if (qrImg) {
+    const currentUrl = window.location.href;
+    qrImg.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=" +
+      encodeURIComponent(currentUrl);
+  }
+});

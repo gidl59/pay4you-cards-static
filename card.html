@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pay4You Cards – Card</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo-pay4you.png">
 </head>
 <body class="card-bg">
 
@@ -66,6 +67,11 @@
           <span class="icon">🌐</span>
           <span id="webLabel"></span>
         </a>
+        <!-- Salva contatto (VCF) -->
+        <a id="btnVcf" class="btn contact-btn">
+          <span class="icon">📇</span>
+          <span>Salva contatto</span>
+        </a>
       </div>
 
       <!-- Social -->
@@ -95,6 +101,12 @@
       <!-- PDF -->
       <div class="section-title">Documenti</div>
       <div class="buttons-list" id="pdfContainer"></div>
+
+      <!-- QR CODE -->
+      <div class="section-title">QR Code</div>
+      <div class="qr-wrapper">
+        <img id="qrImage" alt="QR Code della card" />
+      </div>
 
     </section>
   </main>

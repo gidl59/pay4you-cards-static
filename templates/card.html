@@ -1,1 +1,194 @@
+{% extends "base.html" %}
+{% block title %}{{ agent.name }} {{ agent.surname }} • Pay4You Card{% endblock %}
 
+{% block content %}
+
+<div class="card-public">
+
+    <!-- HEADER: FOTO + NOME + RUOLO -->
+    <div class="card-header">
+
+        <div class="avatar-wrap">
+            <div class="avatar-ring">
+                <img
+                    src="{% if agent.photo %}{{ url_for('static', filename=agent.photo) }}{% else %}{{ url_for('static', filename='img/avatar-default.png') }}{% endif %}"
+                    alt="Foto profilo"
+                    class="avatar-img"
+                >
+            </div>
+        </div>
+
+        <div class="card-header-text">
+            <h1 class="card-name">
+                <span class="name-line">{{ (agent.name or '')|upper }}</span><br>
+                <span class="name-line">{{ (agent.surname or '')|upper }}</span>
+            </h1>
+
+            {% if agent.company %}
+                <div class="card-company">{{ agent.company }}</div>
+            {% endif %}
+            {% if agent.role %}
+                <div class="card-role">{{ agent.role }}</div>
+            {% endif %}
+        </div>
+
+    </div>
+
+    {% if agent.bio %}
+    <p class="card-bio">
+        {{ agent.bio }}
+    </p>
+    {% endif %}
+
+    <!-- SEZIONE CONTATTI -->
+    <section class="card-section">
+        <h3>Contatti</h3>
+
+        {% if agent.phone_mobile %}
+            <a class="card-btn" href="tel:{{ agent.phone_mobile|replace(' ', '') }}">
+                📱 Chiama mobile {{ agent.phone_mobile }}
+            </a>
+        {% endif %}
+
+        {% if agent.phone_office %}
+            <a class="card-btn" href="tel:{{ agent.phone_office|replace(' ', '') }}">
+                ☎️ Chiama ufficio {{ agent.phone_office }}
+            </a>
+        {% endif %}
+
+        {# EMAIL MULTIPLE, SEPARATE DA VIRGOLA #}
+        {% if agent.emails %}
+            {% for email in agent.emails.split(',') %}
+                {% set e = email.strip() %}
+                {% if e %}
+                    <a class="card-btn" href="mailto:{{ e }}">
+                        ✉️ Email {{ loop.index }} — {{ e }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {# SITI WEB MULTIPLI: SE NON C’È HTTP, AGGIUNGIAMO http:// #}
+        {% if agent.websites %}
+            {% for site in agent.websites.split(',') %}
+                {% set raw = site.strip() %}
+                {% if raw %}
+                    {% set url = raw %}
+                    {% if not url.startswith('http://') and not url.startswith('https://') %}
+                        {% set url = 'http://' + url %}
+                    {% endif %}
+                    <a class="card-btn" href="{{ url }}" target="_blank" rel="noopener">
+                        🌐 {{ raw }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!-- vCARD -->
+        <a class="card-btn primary" href="{{ url_for('vcard', slug=agent.slug) }}">
+             Salva contatto (vCard)
+        </a>
+
+        <p class="hint">
+            Su iPhone il contatto viene scaricato nei download: tocca il file <strong>.vcf</strong> per salvarlo in Rubrica.
+        </p>
+    </section>
+
+    <!-- SOCIAL -->
+    {% if agent.facebook or agent.instagram or agent.linkedin or agent.tiktok or agent.telegram or agent.whatsapp %}
+    <section class="card-section">
+        <h3>Social</h3>
+        <div class="chip-row">
+            {% if agent.facebook %}
+                <a class="chip" href="{{ agent.facebook }}" target="_blank" rel="noopener">Facebook</a>
+            {% endif %}
+            {% if agent.instagram %}
+                <a class="chip" href="{{ agent.instagram }}" target="_blank" rel="noopener">Instagram</a>
+            {% endif %}
+            {% if agent.linkedin %}
+                <a class="chip" href="{{ agent.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+            {% endif %}
+            {% if agent.tiktok %}
+                <a class="chip" href="{{ agent.tiktok }}" target="_blank" rel="noopener">TikTok</a>
+            {% endif %}
+            {% if agent.telegram %}
+                <a class="chip" href="{{ agent.telegram }}" target="_blank" rel="noopener">Telegram</a>
+            {% endif %}
+            {% if agent.whatsapp %}
+                <a class="chip" href="{{ agent.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
+            {% endif %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- DATI AZIENDALI -->
+    {% if agent.pec or agent.piva or agent.sdi %}
+    <section class="card-section">
+        <h3>Dati aziendali</h3>
+        <ul class="info-list">
+            {% if agent.pec %}
+                <li><strong>PEC:</strong> {{ agent.pec }}</li>
+            {% endif %}
+            {% if agent.piva %}
+                <li><strong>Partita IVA:</strong> {{ agent.piva }}</li>
+            {% endif %}
+            {% if agent.sdi %}
+                <li><strong>Codice SDI:</strong> {{ agent.sdi }}</li>
+            {% endif %}
+        </ul>
+    </section>
+    {% endif %}
+
+    <!-- INDIRIZZI -->
+    {% if agent.addresses %}
+    <section class="card-section">
+        <h3>Indirizzi</h3>
+        <ul class="addr-list">
+            {% for r in agent.addresses.split('\n') %}
+                {% if r.strip() %}
+                    <li>{{ r.strip() }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    <!-- DOCUMENTI PDF -->
+    {% if agent.pdf1 or agent.pdf2 %}
+    <section class="card-section">
+        <h3>Documenti</h3>
+
+        {% if agent.pdf1 %}
+            <a class="card-btn" href="{{ url_for('static', filename=agent.pdf1) }}" target="_blank" rel="noopener">
+                📄 Apri PDF 1 (si apre in nuova scheda)
+            </a>
+        {% endif %}
+
+        {% if agent.pdf2 %}
+            <a class="card-btn" href="{{ url_for('static', filename=agent.pdf2) }}" target="_blank" rel="noopener">
+                📄 Apri PDF 2 (si apre in nuova scheda)
+            </a>
+        {% endif %}
+
+        <p class="hint">
+            Per tornare alla card, chiudi la scheda del PDF o usa la freccia <strong>Indietro</strong> del browser.
+        </p>
+    </section>
+    {% endif %}
+
+    <!-- GALLERIA FOTO -->
+    {# al momento agent.gallery è una lista vuota nel codice, ma se in futuro la useremo, la struttura è pronta #}
+    {% if agent.gallery and agent.gallery|length > 0 %}
+    <section class="card-section">
+        <h3>Galleria</h3>
+        <div class="gallery">
+            {% for img in agent.gallery %}
+                <img src="{{ url_for('static', filename=img) }}" alt="Foto galleria {{ loop.index }}">
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+</div>
+
+{% endblock %}

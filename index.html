@@ -5,167 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pay4You Cards – Dashboard</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="logo-pay4you.png">
+
+  <!-- Favicon bianca -->
+  <link rel="icon" type="image/png" href="logo-pay4you-white.png">
 </head>
+
 <body class="app-bg">
 
-  <!-- Top bar con logo -->
+  <!-- NAVBAR -->
   <header class="topbar">
     <div class="topbar-left">
-      <img src="logo-pay4you.png" alt="Pay4You" class="logo-small" />
+      <img src="logo-pay4you-white.png" alt="Pay4You" class="logo-small" />
       <div class="topbar-title">
         <span class="topbar-main">Pay4You</span>
         <span class="topbar-sub">Cards</span>
       </div>
     </div>
-    <div class="topbar-right">
-      <span class="topbar-link">Dashboard</span>
-    </div>
   </header>
 
-  <!-- BLOCCO LOGIN -->
+  <!-- LOGIN -->
   <div id="loginBox" class="login-panel">
     <h1>Accesso riservato</h1>
-    <p class="login-text">Inserisci la password per entrare nella dashboard agenti.</p>
+    <p class="login-text">Inserisci la password per accedere alla dashboard.</p>
     <input id="pwd" type="password" placeholder="Password" />
     <button class="btn primary login-btn" onclick="loginDashboard()">Entra</button>
   </div>
 
-  <!-- DASHBOARD (inizialmente nascosta) -->
+  <!-- DASHBOARD -->
   <main id="dashboard" class="main-wrapper" style="display:none;">
     <section class="panel">
       <h1>Nuovo agente</h1>
-      <p class="helper-text">Slug facoltativo (puoi lasciarlo vuoto).</p>
 
-      <!-- Dati base -->
+      <!-- SLUG / TEL -->
       <div class="two-cols">
         <div>
-          <label>Slug (per l'URL)</label>
-          <input id="slug" type="text" placeholder="giuseppe-di-lisio" />
+          <label>Slug</label>
+          <input id="slug" type="text" placeholder="giuseppe" />
         </div>
         <div>
           <label>Telefono mobile</label>
-          <input id="telMobile" type="text" placeholder="+39 333…" />
+          <input id="telMobile" type="text" placeholder="+39..." />
         </div>
       </div>
 
+      <!-- Nome / Ufficio -->
       <div class="two-cols">
         <div>
           <label>Nome completo</label>
-          <input id="nomeCompleto" type="text" placeholder="Giuseppe Di Lisio" />
+          <input id="nomeCompleto" type="text" placeholder="Nome Cognome" />
         </div>
         <div>
           <label>Telefono ufficio</label>
-          <input id="telUfficio" type="text" placeholder="+39 0874…" />
+          <input id="telUfficio" type="text" placeholder="+39..." />
         </div>
       </div>
 
+      <!-- Azienda / Email -->
       <div class="two-cols">
         <div>
           <label>Azienda</label>
           <input id="azienda" type="text" placeholder="Pay4You" />
         </div>
         <div>
-          <label>Mail (separa con virgola)</label>
+          <label>Email (1 o 2, separate da virgola)</label>
           <input id="emails" type="text" placeholder="a@x.it, b@x.it" />
         </div>
       </div>
 
+      <!-- Posizione / Siti -->
       <div class="two-cols">
         <div>
-          <label>Posizione lavorativa</label>
-          <input id="posizione" type="text" placeholder="Area Manager Centro Italia" />
+          <label>Posizione</label>
+          <input id="posizione" type="text" placeholder="Area Manager" />
         </div>
         <div>
-          <label>Siti web (separa con virgola)</label>
-          <input id="websites" type="text" placeholder="https://..., https://..." />
+          <label>Siti web</label>
+          <input id="websites" type="text" placeholder="https://..." />
         </div>
       </div>
 
-      <label>Descrizione / Bio</label>
-      <textarea id="bio" rows="4" placeholder="Responsabile agenti centro Italia"></textarea>
+      <label>Bio</label>
+      <textarea id="bio" rows="3"></textarea>
 
       <!-- Social -->
       <h2>Social</h2>
       <div class="two-cols">
         <div>
-          <label>Facebook (URL profilo o pagina)</label>
+          <label>Facebook</label>
           <input id="facebook" type="text" placeholder="https://facebook.com/..." />
         </div>
         <div>
-          <label>WhatsApp (solo numero con prefisso)</label>
-          <input id="whatsapp" type="text" placeholder="+39 333..." />
+          <label>WhatsApp</label>
+          <input id="whatsapp" type="text" placeholder="+39..." />
         </div>
       </div>
 
-      <!-- Foto profilo e galleria -->
+      <!-- FOTO -->
       <h2>Immagini</h2>
       <label>URL foto profilo</label>
       <input id="fotoProfilo" type="text" placeholder="https://..." />
 
       <div class="two-cols">
-        <div>
-          <label>URL foto galleria 1</label>
-          <input id="gallery1" type="text" placeholder="https://..." />
-        </div>
-        <div>
-          <label>URL foto galleria 2</label>
-          <input id="gallery2" type="text" placeholder="https://..." />
-        </div>
+        <div><label>Gallery 1</label><input id="gallery1" type="text"></div>
+        <div><label>Gallery 2</label><input id="gallery2" type="text"></div>
       </div>
+
       <div class="two-cols">
-        <div>
-          <label>URL foto galleria 3</label>
-          <input id="gallery3" type="text" placeholder="https://..." />
-        </div>
-        <div>
-          <label>URL foto galleria 4</label>
-          <input id="gallery4" type="text" placeholder="https://..." />
-        </div>
+        <div><label>Gallery 3</label><input id="gallery3" type="text"></div>
+        <div><label>Gallery 4</label><input id="gallery4" type="text"></div>
       </div>
 
       <!-- PDF -->
-      <h2>Documenti (PDF)</h2>
+      <h2>Documenti PDF</h2>
       <div class="two-cols">
-        <div>
-          <label>PDF 1 (URL)</label>
-          <input id="pdf1" type="text" placeholder="https://..." />
-        </div>
-        <div>
-          <label>PDF 2 (URL)</label>
-          <input id="pdf2" type="text" placeholder="https://..." />
-        </div>
+        <div><label>PDF 1</label><input id="pdf1" type="text"></div>
+        <div><label>PDF 2</label><input id="pdf2" type="text"></div>
       </div>
       <div class="two-cols">
-        <div>
-          <label>PDF 3 (URL)</label>
-          <input id="pdf3" type="text" placeholder="https://..." />
-        </div>
-        <div>
-          <label>PDF 4 (URL)</label>
-          <input id="pdf4" type="text" placeholder="https://..." />
-        </div>
+        <div><label>PDF 3</label><input id="pdf3" type="text"></div>
+        <div><label>PDF 4</label><input id="pdf4" type="text"></div>
       </div>
 
-      <!-- Indirizzi -->
+      <!-- INDIRIZZI -->
       <h2>Indirizzi</h2>
-      <label>Indirizzo principale</label>
-      <input id="indirizzo1" type="text" placeholder="Via, Città" />
+      <label>Indirizzo 1</label>
+      <input id="indirizzo1" type="text">
 
-      <label>Indirizzo secondario (opzionale)</label>
-      <input id="indirizzo2" type="text" placeholder="Altro indirizzo" />
+      <label>Indirizzo 2</label>
+      <input id="indirizzo2" type="text">
 
-      <!-- BOTTONI SALVA + ANTEPRIMA -->
-      <div class="actions actions-row">
-        <button class="btn secondary" type="button" onclick="salvaDati()">Salva</button>
-        <button class="btn primary" type="button" onclick="generaCardLuxury()">Apri anteprima card</button>
+      <!-- BOTTONI -->
+      <div class="actions-row">
+        <button class="btn secondary" onclick="salvaDati()">Salva</button>
+        <button class="btn primary" onclick="generaCardLuxury()">Apri Card</button>
       </div>
 
-      <button type="button" class="link-exit" onclick="esciDashboard()">Esci</button>
+      <button class="link-exit" onclick="esciDashboard()">Esci</button>
 
-      <p class="hint">
-        Dopo aver aperto la card, usa l'URL completo per creare il QR da stampare.
-      </p>
     </section>
   </main>
 
